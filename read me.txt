@@ -36,6 +36,9 @@ configure your bot.
  19, 'logolink'
  20,'employeeSearchUrl'
  21,'decisionMakersSearchUrl'
+get complete software from here:
+https://drive.google.com/file/d/1MJo7iWbk2oPfJNkKB9c9DP1ZD6jZZKFP/view?usp=sharing
+
 thanks 
 
 FIXS Tech (complete technology solutions)
