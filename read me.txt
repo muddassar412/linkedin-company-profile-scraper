@@ -1,0 +1,18 @@
+How to use me:
+
+1. enter your user name
+2. enter password
+3. enter input file name without extension
+4. enter output file name without extension
+
+configure your bot.
+
+1. make a folder in D drive named as "linkedin".
+2. save all your bot files in it.
+3. save input file in it.
+4. run bot and give required inputs
+5. you will get outfile in same folder i.e "D:\linkedin".
+
+thanks 
+
+FIXS Tech (complete technology solutions)
