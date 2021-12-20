@@ -24,15 +24,9 @@ driver.get("https://www.linkedin.com/")
 
 
 
-WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="session_key"]'))).send_keys(email) 
-WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="session_password"]'))).send_keys(password) 
 
 
-WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="main-content"]/section[1]/div/div/form/button'))).click()
 
-##
-
-record=[]
 def scrape(link):
         driver.get(link)
 
@@ -107,14 +101,6 @@ def scrape(link):
                 twoyear="NO"
 
 
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ember53-account-description-line-clamper"]/span[2]/button'))).click() 
-        sleep(3)
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        try:
-                des=soup.find("p",{"class" : "company-details-panel-description flex white-space-pre-wrap t-14"})
-                description =des.text
-        except:
-                description="NO"
 
         try:
                 hed=soup.find("dd",{"class" :"company-details-panel__content company-details-panel-headquarters t-black--light"})
@@ -132,20 +118,7 @@ def scrape(link):
         except:
                 city = "NO"
 
-        try:
-                postalcode = info[2]
-        except:
-                postalcode = "NO"
 
-        try:
-                country = info[3]
-        except:
-                country = "NO"
-        try:
-                cid = link.split("/")
-                companyid = cid[-1]
-        except:
-                companyid = "NO"
                 ##############################################
 
 
@@ -182,16 +155,10 @@ df = pd.read_excel(file_link)
 
 ##url = df[df.columns[0]].count()
 for row in df.iterrows():
-        row1= row
-        rowb = row[1]
-        row2 = str(rowb)
-        if expire > now == True:
+
                 scrape(url)
-        else:
-                print("Bot belong to 'fixs.tech', you didnot pay for it. contact for details. Message Fixs Tech on WhatsApp. https://wa.me/message/PHKHO52GH777K1")
+
 
 df=pd.DataFrame(record,columns=['name','industry', 'employees', 'revenue','website','description','headquarter','sixmonth', 'oneyear', 'twoyear','location','address','city','postalcode','country', 'salesNavigatorCompanyUrl', 'companyid', 'decisionMakersCount', 'logolink','employeeSearchUrl','decisionMakersSearchUrl']) 
-
-df.to_excel(file_l,sheet_name='linkedin_record')   # copy user's details from the list to the file       
 
 driver.close()       
